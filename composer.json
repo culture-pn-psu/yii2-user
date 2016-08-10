@@ -11,7 +11,7 @@
     },
     "authors": [
         {
-            "name": "Anda Soft",
+            "name": "Anda Tech",
             "email": "kuakling@gmail.com",
             "role" : "Developer"
         }
@@ -20,7 +20,9 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
-        "andatech/yii2-core":"*"
+        "andatech/yii2-core":"*",
+        "dmstr/yii2-adminlte-asset": "2.*",
+        "mdmsoft/yii2-admin": "~2.0"
     },
     "autoload": {
         "psr-4": {
