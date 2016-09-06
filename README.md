@@ -39,6 +39,13 @@ Config
         ],
         ...
     ],
+    'components' => [
+        ...
+        'user' => [
+            'identityClass' => 'anda\user\models\User',
+        ],
+        ...
+    ],
 ```
 
 Migration table user and profile
