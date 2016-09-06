@@ -1,2 +1,2 @@
-# yii2-user Vesion 1.0
+# yii2-user V1.0
 ระบบจัดการผู้ใช้
