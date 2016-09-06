@@ -31,11 +31,11 @@ Config
         ...
         'user' => [ //module id = 'user' only
             'class' => 'anda\user\Module',
-            'loginBy' => 'db', //db or ldap
-            'userUploadDir' => '@uploads', //real path
-            'userUploadUrl' => '/uploads', //url path
+            'loginBy' => 'db', //db or ldap (ldap not work)
+            'userUploadDir' => '@uploads', //Base uploads Directory
+            'userUploadUrl' => '/uploads', //Url of userUploadDir
             'userUploadPath' => 'user', //path after upload directory
-            'admins' => ['admin', 'root'] //list username for manage users
+            'admins' => ['admin', 'root'] //list of username for manage users
         ],
         ...
     ],
