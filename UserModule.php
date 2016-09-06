@@ -33,6 +33,7 @@ class UserModule extends \yii\base\Module
     public function init()
     {
         parent::init();
+        
         Yii::setAlias('anda/user','@vendor/andatech/yii-user/');
 
         $this->layoutPath = '@anda/user/views/layouts';
