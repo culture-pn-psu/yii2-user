@@ -24,7 +24,7 @@
         "andatech/yii2-filemanager":"*",
         "dmstr/yii2-adminlte-asset": "2.*",
         "mdmsoft/yii2-admin": "~2.0",
-        "miragesoft/yii2-basicfilemanager": "dev-master"
+        "miragesoft/yii2-basicfilemanager": "*"
     },
     "autoload": {
         "psr-4": {
