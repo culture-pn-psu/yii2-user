@@ -146,7 +146,7 @@ class Profile extends \yii\db\ActiveRecord
             'cover' => $this->cover_cropped,
             'bio' => $this->bio,
             'data' => $this->data,
-            'roles' => Yii::$app->authManager->getRoles($this->user_id),
+            'roles' => Yii::$app->authManager->getRolesByUser($this->user_id),
         ];
 
         return $result;
@@ -167,7 +167,11 @@ class Profile extends \yii\db\ActiveRecord
         $data->cover = $this->verifyImage($userUploadPath.'/covers/'.$data->cover, 'default-cover.jpg');
         $data->bio = $this->verifyValue($data->bio);
         $data->data = $this->verifyValue($data->data);
-        $data->roles = (count($data->roles) > 0) ? $data->roles : [(object)['name' => null]];
+        $roles = [];
+        foreach ($data->roles as $key => $role) {
+            $roles[$key] = ucfirst($role->description);
+        }
+        $data->roles = $roles;
 
         return $data;
     }
