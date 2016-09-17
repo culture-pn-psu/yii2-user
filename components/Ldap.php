@@ -2,6 +2,7 @@
 namespace suPnPsu\user\components;
 
 use Yii;
+use suPnPsu\user\models\Profile;
 
 /*****************Usage for Yii2Advanced*****************************
 1.	Put this file to Your project/common/components (create components directory by user)
@@ -46,6 +47,7 @@ class Ldap
 	public $domain = '';
 	public $username = '';
 	public $password = '';
+	public $id = '';
 
 	public function Authenticate()
 	{
@@ -87,9 +89,9 @@ class Ldap
 		);
                 
 		$info = ldap_get_entries($ldap, $sr);
-                echo "<pre>";
-                print_r($info);
-                exit();
+//                echo "<pre>";
+//                print_r($info);
+//                exit();
 		$user = [
 			'cn' => $info[0]["cn"][0],
 			'dn' => $info[0]["dn"],
@@ -113,6 +115,7 @@ class Ldap
 			'mail' => $info[0]["userprincipalname"][0],
 			'othermail' => $info[0]["mail"][0],
 		];
+                Profile::updateProfile($this->id, $user);
 
 		return $user;
 		//return $info; //for original information server call back
