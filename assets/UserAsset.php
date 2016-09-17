@@ -1,5 +1,5 @@
 <?php
-namespace anda\user\assets;
+namespace suPnPsu\user\assets;
 
 use yii\base\Exception;
 use yii\web\AssetBundle;
@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
  */
 class UserAsset extends AssetBundle
 {
-    public $sourcePath = '@anda/user/client';
+    public $sourcePath = '@suPnPsu/user/client';
     public $css = [
     	'css/adminlte2-fixed.css'
     ];

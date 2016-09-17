@@ -1,8 +1,8 @@
 <?php
-namespace anda\user\components;
+namespace suPnPsu\user\components;
 
 use Yii;
-use anda\user\models\User;
+use suPnPsu\user\models\User;
 
 class Controller extends \yii\web\Controller
 {

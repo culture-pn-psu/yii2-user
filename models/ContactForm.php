@@ -1,6 +1,6 @@
 <?php
 
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
 use Yii;
 use yii\base\Model;

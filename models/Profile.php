@@ -1,6 +1,6 @@
 <?php
 
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
 use Yii;
 use karpoff\icrop\CropImageUploadBehavior;
@@ -83,6 +83,7 @@ class Profile extends \yii\db\ActiveRecord
             [['user_id',], 'required'],
             [['user_id'], 'integer'],
             [['bio', 'data'], 'string'],
+            [['login_by'], 'string', 'max' => 10],
             [['firstname', 'lastname', 'avatar_offset', 'avatar_cropped', 'cover_offset', 'cover_cropped'], 'string', 'max' => 255],
             [['avatar', 'cover'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['insert', 'update']],
         ];
@@ -98,12 +99,13 @@ class Profile extends \yii\db\ActiveRecord
             'cover' => 'รูปหน้าปก',
             'bio' => 'ประวัติ',
             'data' => 'ข้อมูลอื่นๆ',
+            'login_by'=>'เข้าใช้ระบบด้วย'
         ];
     }
 
     public function getUser()
     {
-        return $this->hasOne(\anda\user\models\User::className(), ['id' => 'user_id']);
+        return $this->hasOne(\suPnPsu\user\models\User::className(), ['id' => 'user_id']);
     }
 
     public function beforeDelete()
@@ -192,10 +194,10 @@ class Profile extends \yii\db\ActiveRecord
             return $fileUrl;
         }else{
             $asset = Yii::$app->assetManager;
-            $assetUrl = $asset->getPublishedUrl('@anda/user/client');
+            $assetUrl = $asset->getPublishedUrl('@suPnPsu/user/client');
             $assetDir = Yii::getAlias('@webroot/assets/').basename($assetUrl);
             if(!is_dir($assetDir)){
-                $asset->publish('@anda/user/client');
+                $asset->publish('@suPnPsu/user/client');
             }
             return $assetUrl.'/images/'.$defaultImage;
         }

@@ -1,7 +1,7 @@
 <?php
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
-use anda\user\models\User;
+use suPnPsu\user\models\User;
 use yii\base\InvalidParamException;
 use yii\base\Model;
 use Yii;

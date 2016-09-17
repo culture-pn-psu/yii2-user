@@ -1,10 +1,10 @@
 <?php
 
-namespace anda\user\controllers;
+namespace suPnPsu\user\controllers;
 
 use Yii;
-use anda\user\models\Profile;
-use anda\user\components\Controller;
+use suPnPsu\user\models\Profile;
+use suPnPsu\user\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 

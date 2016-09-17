@@ -1,5 +1,5 @@
 <?php
-namespace anda\user\components;
+namespace suPnPsu\user\components;
 
 use Yii;
 
@@ -85,9 +85,11 @@ class Ldap
 			"(&(objectClass=user)(objectCategory=person)(sAMAccountName=".$this->username."))",
 			array("cn", "dn", "samaccountname", "employeeid", "citizenid", "company", "campusid", "department", "departmentid", "physicaldeliveryofficename", "positionid", "description", "displayname", "title", "personaltitle", "personaltitleid", "givenname", "sn", "sex", "userprincipalname","mail")
 		);
-
+                
 		$info = ldap_get_entries($ldap, $sr);
-
+                echo "<pre>";
+                print_r($info);
+                exit();
 		$user = [
 			'cn' => $info[0]["cn"][0],
 			'dn' => $info[0]["dn"],
@@ -116,3 +118,161 @@ class Ldap
 		//return $info; //for original information server call back
 	}
 }
+
+
+/*
+ 
+ 1
+Array
+(
+    [count] => 1
+    [0] => Array
+        (
+            [cn] => Array
+                (
+                    [count] => 1
+                    [0] => 5620610077-kudiiana
+                )
+
+            [0] => cn
+            [sn] => Array
+                (
+                    [count] => 1
+                    [0] => NIBUESA
+                )
+
+            [1] => sn
+            [title] => Array
+                (
+                    [count] => 1
+                    [0] => ปริญญาตรี
+                )
+
+            [2] => title
+            [description] => Array
+                (
+                    [count] => 1
+                    [0] => กูดีญานา นิบือซา
+                )
+
+            [3] => description
+            [physicaldeliveryofficename] => Array
+                (
+                    [count] => 1
+                    [0] => คณะวิทยาการสื่อสาร คณะวิทยาการสื่อสาร
+                )
+
+            [4] => physicaldeliveryofficename
+            [givenname] => Array
+                (
+                    [count] => 1
+                    [0] => KUDIIANA
+                )
+
+            [5] => givenname
+            [displayname] => Array
+                (
+                    [count] => 1
+                    [0] => KUDIIANA NIBUESA
+                )
+
+            [6] => displayname
+            [department] => Array
+                (
+                    [count] => 1
+                    [0] => คณะวิทยาการสื่อสาร
+                )
+
+            [7] => department
+            [company] => Array
+                (
+                    [count] => 1
+                    [0] => วิทยาเขตปัตตานี
+                )
+
+            [8] => company
+            [personaltitle] => Array
+                (
+                    [count] => 1
+                    [0] => น.ส.
+                )
+
+            [9] => personaltitle
+            [employeeid] => Array
+                (
+                    [count] => 1
+                    [0] => 5620610077
+                )
+
+            [10] => employeeid
+            [samaccountname] => Array
+                (
+                    [count] => 1
+                    [0] => 5620610077
+                )
+
+            [11] => samaccountname
+            [userprincipalname] => Array
+                (
+                    [count] => 1
+                    [0] => 5620610077@email.psu.ac.th
+                )
+
+            [12] => userprincipalname
+            [mail] => Array
+                (
+                    [count] => 1
+                    [0] => 5620610077@email.psu.ac.th
+                )
+
+            [13] => mail
+            [citizenid] => Array
+                (
+                    [count] => 1
+                    [0] => 1949900246233
+                )
+
+            [14] => citizenid
+            [sex] => Array
+                (
+                    [count] => 1
+                    [0] => 2
+                )
+
+            [15] => sex
+            [campusid] => Array
+                (
+                    [count] => 1
+                    [0] => 02
+                )
+
+            [16] => campusid
+            [positionid] => Array
+                (
+                    [count] => 1
+                    [0] => 1
+                )
+
+            [17] => positionid
+            [personaltitleid] => Array
+                (
+                    [count] => 1
+                    [0] => 02
+                )
+
+            [18] => personaltitleid
+            [departmentid] => Array
+                (
+                    [count] => 1
+                    [0] => 217
+                )
+
+            [19] => departmentid
+            [count] => 20
+            [dn] => CN=5620610077-kudiiana,OU=D217,OU=F36,OU=C02,OU=Students,DC=psu,DC=ac,DC=th
+        )
+
+) 
+  
+ 
+ */

@@ -1,11 +1,11 @@
 <?php
-namespace anda\user\controllers;
+namespace suPnPsu\user\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
-use anda\user\models\SignupForm;
+use suPnPsu\user\models\SignupForm;
 
 use app\models\Profile;
 

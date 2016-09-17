@@ -1,7 +1,7 @@
 <?php
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
-use anda\user\models\User;
+use suPnPsu\user\models\User;
 use Yii;
 use yii\base\Model;
 
@@ -22,7 +22,7 @@ class PasswordResetRequestForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\anda\user\models\User',
+                'targetClass' => '\suPnPsu\user\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with such email.'
             ],

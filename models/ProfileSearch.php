@@ -1,14 +1,14 @@
 <?php
 
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use anda\user\models\Profile;
+use suPnPsu\user\models\Profile;
 
 /**
- * ProfileSearch represents the model behind the search form about `anda\user\models\Profile`.
+ * ProfileSearch represents the model behind the search form about `suPnPsu\user\models\Profile`.
  */
 class ProfileSearch extends Profile
 {

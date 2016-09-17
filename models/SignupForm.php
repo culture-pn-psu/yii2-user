@@ -1,7 +1,7 @@
 <?php
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
-use anda\user\models\User;
+use suPnPsu\user\models\User;
 use yii\base\Model;
 use Yii;
 
@@ -24,14 +24,14 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\anda\user\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => '\suPnPsu\user\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\anda\user\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\suPnPsu\user\models\User', 'message' => 'This email address has already been taken.'],
 
             [['password',], 'required'],
             [['password', 'passwordConfirm'], 'string', 'min' => 6],

@@ -1,6 +1,6 @@
 <?php
 
-namespace anda\user;
+namespace suPnPsu\user;
 
 /**
  * user module definition class
@@ -31,7 +31,7 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'anda\user\controllers';
+    public $controllerNamespace = 'suPnPsu\user\controllers';
 
     /**
      * @inheritdoc
@@ -40,14 +40,17 @@ class Module extends \yii\base\Module
     {
         parent::init();
 
-        $this->layoutPath = '@anda/user/views/layouts';
-        $this->layout = 'main';
+        $this->defaultRoute = 'settings/profile';
+        $this->layout = 'left-menu.php';
+        
+//        $this->layoutPath = '@suPnPsu/user/views/layouts';
+//        $this->layout = 'main';
 
         Yii::$app->user->loginUrl = ['/'.$this->id.'/auth/login'];
 
         $this->params();
 
-        Yii::$app->mailer->viewPath = '@anda/user/mail';
+        Yii::$app->mailer->viewPath = '@suPnPsu/user/mail';
 
         if(substr($this->userUploadDir, 0, 1) === '@'){
             $this->userUploadDir = Yii::getAlias($this->userUploadDir);

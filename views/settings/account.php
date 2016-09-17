@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
-/* @var $model anda\user\models\Account */
+/* @var $model suPnPsu\user\models\Account */
 
 $this->title = 'Update Account: ' . $model->username;
 $this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['default/index']];

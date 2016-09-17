@@ -1,15 +1,15 @@
 <?php
 
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use anda\user\models\User;
-use anda\user\models\Profile;
+use suPnPsu\user\models\User;
+use suPnPsu\user\models\Profile;
 
 /**
- * UserSearch represents the model behind the search form about `anda\user\models\User`.
+ * UserSearch represents the model behind the search form about `suPnPsu\user\models\User`.
  */
 class UserSearch extends User
 {

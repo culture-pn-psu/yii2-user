@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $user anda\user\models\User */
+/* @var $user suPnPsu\user\models\User */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="box box-<?= $user->isNewRecord ? 'success' : 'primary' ?>">

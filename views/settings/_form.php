@@ -6,7 +6,7 @@ use yii\bootstrap\Modal;
 use karpoff\icrop\CropImageUpload;
 
 /* @var $this yii\web\View */
-/* @var $model anda\user\models\Profile */
+/* @var $model suPnPsu\user\models\Profile */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <?php
@@ -90,6 +90,8 @@ Modal::end();
                     ?>
                 </div>
             </div>
+            
+            
             <div class="box-footer">
               <div class="row" style="margin-top: 30px;">
                 <div class="col-sm-12">

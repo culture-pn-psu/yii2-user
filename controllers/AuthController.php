@@ -1,13 +1,13 @@
 <?php
-namespace anda\user\controllers;
+namespace suPnPsu\user\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
-use anda\user\models\PasswordResetRequestForm;
-use anda\user\models\ResetPasswordForm;
-use anda\user\models\LoginForm;
+use suPnPsu\user\models\PasswordResetRequestForm;
+use suPnPsu\user\models\ResetPasswordForm;
+use suPnPsu\user\models\LoginForm;
 
 use app\models\Profile;
 
@@ -51,6 +51,8 @@ class AuthController extends Controller
 
     public function actionLogin()
     {
+        
+        
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }

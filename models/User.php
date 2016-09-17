@@ -1,5 +1,5 @@
 <?php
-namespace anda\user\models;
+namespace suPnPsu\user\models;
 
 use Yii;
 use yii\base\NotSupportedException;
@@ -9,7 +9,7 @@ use yii\web\IdentityInterface;
 use yii\helpers\FileHelper;
 use yii\helpers\ArrayHelper;
 
-use \anda\user\models\Profile;
+use \suPnPsu\user\models\Profile;
 
 /**
  * User model
@@ -242,6 +242,10 @@ class User extends ActiveRecord implements IdentityInterface
             $profile->user_id = $this->id;
 
             $profile->load(Yii::$app->request->post());
+            if($profile->login_by===null){
+                $profile->login_by = 'psu';
+            }
+           
             if($profile->save()) {
                 $this->prepareUserDir();
             }else{
@@ -279,7 +283,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getProfile()
     {
-        return $this->hasOne(\anda\user\models\Profile::className(), ['user_id' => 'id']);
+        return $this->hasOne(\suPnPsu\user\models\Profile::className(), ['user_id' => 'id']);
     }
 
     public function getStatusList()

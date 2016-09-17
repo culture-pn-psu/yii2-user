@@ -1,10 +1,10 @@
 <?php
 
-namespace anda\user\controllers;
+namespace suPnPsu\user\controllers;
 
 use Yii;
-use anda\user\components\Controller;
-use anda\user\models\User;
+use suPnPsu\user\components\Controller;
+use suPnPsu\user\models\User;
 
 /**
  * Default controller for the `user` module

@@ -1,16 +1,16 @@
 <?php
 
-namespace anda\user\controllers;
+namespace suPnPsu\user\controllers;
 
 use Yii;
-use anda\user\models\User;
-use anda\user\models\UserSearch;
-use anda\user\models\Profile;
-use anda\user\components\Controller;
+use suPnPsu\user\models\User;
+use suPnPsu\user\models\UserSearch;
+use suPnPsu\user\models\Profile;
+use suPnPsu\user\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use anda\user\filters\AccessRule;
+use suPnPsu\user\filters\AccessRule;
 
 /**
  * AdminController implements the CRUD actions for User model.
