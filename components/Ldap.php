@@ -115,7 +115,7 @@ class Ldap
 			'mail' => $info[0]["userprincipalname"][0],
 			'othermail' => $info[0]["mail"][0],
 		];
-                Profile::updateProfile($this->id, $user);
+                //Profile::updateProfile($this->id, $user);
 
 		return $user;
 		//return $info; //for original information server call back

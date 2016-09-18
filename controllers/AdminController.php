@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use suPnPsu\user\filters\AccessRule;
+use suPnPsu\user\models\UserSearchWaiting;
 
 /**
  * AdminController implements the CRUD actions for User model.
@@ -44,6 +45,10 @@ class AdminController extends Controller
             ],
         ];
     }
+    
+    public function actions() {
+        $this->layout = 'left-menu-admin';
+    }
 
     /**
      * Lists all User models.
@@ -56,6 +61,18 @@ class AdminController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    public function actionWaiting()
+    {
+        //print_r(Yii::$app->user->identity);
+        $searchModel = new UserSearchWaiting();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('waiting', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

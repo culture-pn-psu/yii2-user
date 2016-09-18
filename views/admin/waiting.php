@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel suPnPsu\user\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ระบบจัดการผู้ใช้';
+$this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class='box box-info'>
@@ -23,14 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
-                    //['class' => 'yii\grid\SerialColumn'],
-
-                        [
-                        'attribute' => 'id',
-                        'headerOptions' => ['style' => 'width: 60px;']
+                    ['class' => 'yii\grid\SerialColumn'],                        
+                   
+                    
+                    [
+                        'attribute' => 'username',
+                        'format'=>'html',
+                        'value' => function($model){
+                        return Html::a($model->username,['check','id'=>$model->id]);
+                                
+                        }
+                      
                     ],
-                    'username',
-                    'email:email',
                         [
                         'attribute' => 'profile.fullname',
                         'value' => 'profile.fullname',
@@ -43,13 +47,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     // 'created_at',
                     // 'updated_at',
-                    ['class' => 'yii\grid\ActionColumn'],
+                    // ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]);
             ?>
         </div>
         
         
-    </div><!--box-body pad-->
-</div><!--box box-info-->
-
+    </div>
+</div>

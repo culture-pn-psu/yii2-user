@@ -49,7 +49,7 @@ class Soap {
         $data['lastname']=$detail[2];
         
         
-        Profile::updateProfile($this->id,$data);
+        //Profile::updateProfile($this->id,$data);
         return $data;
         
         

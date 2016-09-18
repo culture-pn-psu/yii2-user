@@ -41,7 +41,7 @@ class Module extends \yii\base\Module
         parent::init();
 
         $this->defaultRoute = 'settings/profile';
-        $this->layout = 'left-menu.php';
+        //$this->layout = 'left-menu.php';
         
 //        $this->layoutPath = '@suPnPsu/user/views/layouts';
 //        $this->layout = 'main';

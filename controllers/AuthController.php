@@ -61,7 +61,7 @@ class AuthController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            $this->layout = 'main-blank';
+            //$this->layout = 'main';
             return $this->render('login', [
                 'model' => $model,
             ]);

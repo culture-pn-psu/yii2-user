@@ -139,6 +139,10 @@ class Profile extends \yii\db\ActiveRecord {
                     'bio' => $this->bio,
                     'data' => $this->data,
                     'roles' => Yii::$app->authManager->getRolesByUser($this->user_id),
+                    'major' => $this->person?$this->person->major:null,
+                    'faculty' => $this->person?$this->person->faculty:null,
+                    'tel' => $this->person?$this->person->tel:null,
+                    'address' => $this->person?$this->person->faculty:null,
         ];
 
         return $result;
@@ -232,6 +236,10 @@ class Profile extends \yii\db\ActiveRecord {
                 $model->save();
             }
         }
+    }
+    
+    public function getPerson() {
+        return $this->hasOne(\suPnPsu\user\models\Person::className(), ['user_id' => 'user_id']);
     }
 
 }

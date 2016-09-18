@@ -19,7 +19,7 @@ class RegistController extends Controller
 
     public function actionSignup()
     {
-        $this->layout = 'main-blank';
+        //$this->layout = 'main-blank';
         $model = new SignupForm(['scenario' => 'signup']);
         //$model->scenario = 'signup';
         if ($model->load(Yii::$app->request->post())) {

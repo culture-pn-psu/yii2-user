@@ -26,7 +26,7 @@ class LoginForm extends Model {
     public function rules() {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
+                [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
@@ -40,8 +40,10 @@ class LoginForm extends Model {
             //if($this->module->loginBy === 'ldap'){ //เอาออก
             //echo $user->profile->login_by;
             //exit();
+
+
             if ($user->profile->login_by === 'psu') {
-                
+
                 if (@function_exists('ldap_connect')) {
                     $ldap = new \suPnPsu\user\components\Ldap();
                     /* $ldap->server = ['dc2.psu.ac.th','dc7.psu.ac.th','dc1.psu.ac.th'];
@@ -50,19 +52,25 @@ class LoginForm extends Model {
                     $ldap->server = $this->module->ldapConfig['server'];
                     $ldap->basedn = $this->module->ldapConfig['basedn'];
                     $ldap->domain = $this->module->ldapConfig['domain'];
+                    $ldap->id = $user->id;
                     $ldap->username = $this->username;
                     $ldap->password = $this->password;
                     $authen = $ldap->Authenticate();
                     if (!$user || !$authen['status']) {
                         $this->addError($attribute, 'Incorrect username or password.');
+                    } else {
+                        Profile::updateProfile($user->id, $authen['info']);
                     }
                 } else {
-                    $ldap = new \suPnPsu\user\components\Soap();                    
-                    $ldap->username = $this->username;
-                    $ldap->password = $this->password;
-                    $authen = $ldap->Authenticate();
+                    $soap = new \suPnPsu\user\components\Soap();
+                    $soap->id = $user->id;
+                    $soap->username = $this->username;
+                    $soap->password = $this->password;
+                    $authen = $soap->Authenticate();
                     if (!$user || !$authen['status']) {
                         $this->addError($attribute, 'Incorrect username or password.');
+                    } else {
+                        Profile::updateProfile($user->id, $authen['info']);
                     }
                 }
             } else {
