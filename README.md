@@ -8,13 +8,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require su-pn-psu/yii2-user "dev-master"
+composer require culture-pn-psu/yii2-user "dev-master"
 ```
 
 or add
 
 ```
-"su-pn-psu/yii2-user": "dev-master"
+"culture-pn-psu/yii2-user": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
@@ -93,7 +93,7 @@ stdClass Object
 (
     [id] => 1
     [username] => admin
-    [email] => admin@su-pn-psu.net
+    [email] => admin@culture-pn-psu.net
     [created_at] => 1473135990
     [updated_at] => 1473135990
     [firstname] => Admin
