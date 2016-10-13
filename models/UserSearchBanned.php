@@ -11,7 +11,7 @@ use suPnPsu\user\models\Profile;
 /**
  * UserSearch represents the model behind the search form about `suPnPsu\user\models\User`.
  */
-class UserSearchWaiting extends UserSearch
+class UserSearchBanned extends UserSearch
 {    
 
    
@@ -41,7 +41,7 @@ class UserSearchWaiting extends UserSearch
         ];
         $query->joinWith(['profile']);
         
-        $query->where(['status'=> 1]);
+        $query->where(['status'=> 2]);
         
         $query = parent::queryPermissiton($query);
 

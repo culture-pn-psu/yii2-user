@@ -23,14 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
-
-//                        [
-//                        'attribute' => 'id',
-//                        'headerOptions' => ['style' => 'width: 60px;']
-//                    ],
+                        ['class' => 'yii\grid\SerialColumn'],
                         [
                         'attribute' => 'username',
+                        'label' => 'รหัสนักศึกษา',
                         'format' => 'html',
                         'value' => function($model) {
                             return Html::a($model->username, ['view', 'id' => $model->id]);
@@ -40,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'profile.fullname',
                         'value' => 'profile.fullname',
-                        'label' => 'Fullname',
+                        'label' => 'ชื่อ - สกุล',
                     ],
                         [
                         'attribute' => 'profile.person.position_id',

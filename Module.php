@@ -46,7 +46,7 @@ class Module extends \yii\base\Module
 //        $this->layoutPath = '@suPnPsu/user/views/layouts';
 //        $this->layout = 'main';
 
-        Yii::$app->user->loginUrl = ['/'.$this->id.'/auth/login'];
+        //Yii::$app->user->loginUrl = ['/'.$this->id.'/auth/login'];
 
         $this->params();
 

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel suPnPsu\user\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ระบบจัดการผู้ใช้';
+$this->title = 'ผู้ที่ลงเบียน';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class='box box-info'>
@@ -23,24 +23,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
-
-//                        [
-//                        'attribute' => 'id',
-//                        'headerOptions' => ['style' => 'width: 60px;']
-//                    ],
-                        [
+                    ['class' => 'yii\grid\SerialColumn'],                        
+                   
+                    
+                    [
                         'attribute' => 'username',
+                        'label' => 'รหัสนักศึกษา',
                         'format' => 'html',
                         'value' => function($model) {
-                            return Html::a($model->username, ['view', 'id' => $model->id]);
+                            return Html::a($model->username, ['check', 'id' => $model->id]);
                         }
                     ],
                     //'email:email',
                     [
                         'attribute' => 'profile.fullname',
                         'value' => 'profile.fullname',
-                        'label' => 'Fullname',
+                        'label' => 'ชื่อ - สกุล',
                     ],
                         [
                         'attribute' => 'profile.person.position_id',
@@ -56,21 +54,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'profile.person.major',
                         'value' => 'profile.person.major',
                         'label' => 'สาขา/ฝ่ายงาน',
-                    ],
-                        [
-                        'attribute' => 'status',
-                        'value' => 'statusName',
-                        'filter' => Html::activeDropDownList($searchModel, 'status', $searchModel->statusList, ['class' => 'form-control', 'prompt' => '-- All --']),
-                    ],
+                    ],         
                     // 'created_at',
                     // 'updated_at',
-                    ['class' => 'yii\grid\ActionColumn'],
+                    // ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]);
             ?>
         </div>
-
-
-    </div><!--box-body pad-->
-</div><!--box box-info-->
-
+        
+        
+    </div>
+</div>

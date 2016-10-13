@@ -12,12 +12,13 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use suPnPsu\user\filters\AccessRule;
 use suPnPsu\user\models\UserSearchWaiting;
+use suPnPsu\user\models\UserSearchBanned;
 use suPnPsu\user\models\Person;
 
 /**
  * AdminController implements the CRUD actions for User model.
  */
-class AdminController extends Controller {
+class StudentController extends Controller {
 
     /**
      * @inheritdoc
@@ -75,6 +76,17 @@ class AdminController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
+    
+    public function actionBanned() {
+        //print_r(Yii::$app->user->identity);
+        $searchModel = new UserSearchBanned();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('banned', [
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single User model.
@@ -110,10 +122,10 @@ class AdminController extends Controller {
 
             $person->load(Yii::$app->request->post());
             $person->save();
-            
+
             $auth = Yii::$app->authManager;
             $role = $auth->getRole($person->role);
-            $info = $auth->assign($role, $user->id); 
+            $info = $auth->assign($role, $user->id);
 
             return $this->redirect(['view', 'id' => $user->id]);
             //print_r($user->attributes);
@@ -143,12 +155,12 @@ class AdminController extends Controller {
 
             $person->load(Yii::$app->request->post());
             $person->save();
-            
+
             $auth = Yii::$app->authManager;
             $role = $auth->getRole($person->position->role);
             $auth->revokeAll($id);
-            $info = $auth->assign($role, $id);            
-            
+            $info = $auth->assign($role, $id);
+
             return $this->redirect(['view', 'id' => $user->id]);
         } else {
             return $this->render('update', [
@@ -188,16 +200,21 @@ class AdminController extends Controller {
 
     ###########################
 
-    public function actionChange($id) {
+    public function actionChange($id, $banned = null) {
         //echo $id;
         $user = $this->findModel($id);
-        $user->status = 10;
+        
+        if (isset($banned)) {
+            $user->status = 2;
+        }else{
+            $user->status = 10;
+        }
 
         $auth = Yii::$app->authManager;
         $role = $auth->getRole('user');
         $info = $auth->assign($role, $id);
         if ($user->save() && $info) {
-            return $this->goBack();
+            return $this->redirect(['waiting']);
         }
     }
 

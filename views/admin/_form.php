@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use suPnPsu\user\models\Position;
 
 /* @var $this yii\web\View */
 /* @var $user suPnPsu\user\models\User */
@@ -33,6 +34,8 @@ use yii\widgets\ActiveForm;
 				<?= $form->field($profile, 'firstname')->textInput(['maxlength' => true]) ?>
 
 				<?= $form->field($profile, 'lastname')->textInput(['maxlength' => true]) ?>
+                                
+                                <?= $form->field($person, 'position_id')->dropDownList(Position::getList(),['prompt'=>'เลือกตำแหน่ง']) ?>
 
 				<?= $form->field($profile, 'bio')->textInput(['maxlength' => true]) ?>
 			</div>

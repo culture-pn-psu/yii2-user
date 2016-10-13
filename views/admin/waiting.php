@@ -38,13 +38,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         [
                         'attribute' => 'profile.fullname',
                         'value' => 'profile.fullname',
-                        'label' => 'Fullname',
+                        'label' => 'ชื่อผู้ใช้',
                     ],
-                        [
-                        'attribute' => 'status',
-                        'value' => 'statusName',
-                        'filter' => Html::activeDropDownList($searchModel, 'status', $searchModel->statusList, ['class' => 'form-control', 'prompt' => '-- All --']),
+                            [
+                        'attribute' => 'profile.person.faculty',
+                        'value' => 'profile.person.faculty',
+                        'label' => 'คณะ/หน่วยงาน',
                     ],
+                            [
+                        'attribute' => 'profile.person.major',
+                        'value' => 'profile.person.major',
+                        'label' => 'สาขา/ฝ่ายงาน',
+                    ],                        
                     // 'created_at',
                     // 'updated_at',
                     // ['class' => 'yii\grid\ActionColumn'],

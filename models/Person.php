@@ -56,7 +56,7 @@ class Person extends \yii\db\ActiveRecord
         return [
             'user_id' => Yii::t('app', 'User Id'),
             'status' => Yii::t('app', 'Status'),
-            'position_id' => Yii::t('app', 'Position'),
+            'position_id' => Yii::t('app', 'ตำแหน่ง'),
             'title_id' => Yii::t('app', 'Title'),
             'created_at' => Yii::t('app', 'Created at'),
             'updated_at' => Yii::t('app', 'Updated at'),
@@ -76,4 +76,11 @@ class Person extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+    
+    public function getPosition()
+    {
+        return $this->hasOne(Position::className(), ['id' => 'position_id']);
+    }
+    
+    
 }

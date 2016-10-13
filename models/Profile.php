@@ -4,6 +4,9 @@ namespace suPnPsu\user\models;
 
 use Yii;
 use karpoff\icrop\CropImageUploadBehavior;
+use yii\helpers\Html;
+use \yii\helpers\StringHelper;
+use suPnPsu\user\models\User;
 
 /**
  * This is the model class for table "user_profile".
@@ -92,7 +95,8 @@ class Profile extends \yii\db\ActiveRecord {
             'cover' => 'รูปหน้าปก',
             'bio' => 'ประวัติ',
             'data' => 'ข้อมูลอื่นๆ',
-            'login_by' => 'เข้าใช้ระบบด้วย'
+            'login_by' => 'เข้าใช้ระบบด้วย',
+            'fullname' => 'ชื่อ-นามสกุล'
         ];
     }
 
@@ -139,10 +143,10 @@ class Profile extends \yii\db\ActiveRecord {
                     'bio' => $this->bio,
                     'data' => $this->data,
                     'roles' => Yii::$app->authManager->getRolesByUser($this->user_id),
-                    'major' => $this->person?$this->person->major:null,
-                    'faculty' => $this->person?$this->person->faculty:null,
-                    'tel' => $this->person?$this->person->tel:null,
-                    'address' => $this->person?$this->person->faculty:null,
+                    'major' => $this->person ? $this->person->major : null,
+                    'faculty' => $this->person ? $this->person->faculty : null,
+                    'tel' => $this->person ? $this->person->tel : null,
+                    'address' => $this->person ? $this->person->faculty : null,
         ];
 
         return $result;
@@ -158,7 +162,7 @@ class Profile extends \yii\db\ActiveRecord {
         $data->firstname = $this->verifyValue($data->firstname);
         $data->lastname = $this->verifyValue($data->lastname);
         $data->fullname = $this->verifyValue($data->fullname);
-        $data->avatar = $this->checkImgPsu($data->username)?$this->checkImgPsu($data->username):$this->verifyImage($userUploadPath . '/avatars/' . $data->avatar, 'default-avatar.jpg');
+        $data->avatar = $this->checkImgPsu($data->username) ? $this->checkImgPsu($data->username) : $this->verifyImage($userUploadPath . '/avatars/' . $data->avatar, 'default-avatar.jpg');
         $data->cover = $this->verifyImage($userUploadPath . '/covers/' . $data->cover, 'default-cover.jpg');
         $data->bio = $this->verifyValue($data->bio);
         $data->data = $this->verifyValue($data->data);
@@ -190,7 +194,6 @@ class Profile extends \yii\db\ActiveRecord {
 
     private function verifyImage($val, $defaultImage = 'no-image.jpg') {
         //return 'http://intranet.pn.psu.ac.th/registry/student_photo/56/5620610077.jpg';
-
 //        if (@getimagesize($val)) {
 //            return $val;
 //        } 
@@ -237,9 +240,62 @@ class Profile extends \yii\db\ActiveRecord {
             }
         }
     }
-    
+
     public function getPerson() {
         return $this->hasOne(\suPnPsu\user\models\Person::className(), ['user_id' => 'user_id']);
+    }
+
+    public function getStatusChange() {
+
+        $str = '';
+        $controller = Yii::$app->controller->id;
+        if ($this->user->status==1) {
+            $str .= Html::a('อนุมัตเป็นสมาชิก', ['/user/'.$controller.'/change', 'id' => $this->user->id], [
+                        'class' => 'btn btn-success',
+                        'data' => [
+                            'confirm' => 'ยืนยันการอนุมัติ?',
+                            'method' => 'post',
+                        ],
+            ]);
+            $str .= ' ';
+            
+            $str .= Html::a('ไม่อนุมัต', ['/user/'.$controller.'/change', 'id' => $this->user->id, 'banned'=>'1'], [
+                        'class' => 'btn btn-danger',
+                        'data' => [
+                            'confirm' => 'ยืนยันที่จะไม่อนุมัติ?',
+                            'method' => 'post',
+                        ],
+            ]);
+        }
+
+
+
+
+
+
+
+        return $str;
+    }
+    
+    public function getWidget(){
+        $state = StringHelper::truncate($this->person->major, 20). ' '.StringHelper::truncate($this->person->faculty, 20);
+        $str = '<div class="user-block">
+                <img class="img-circle" src="'. $this->resultInfo->avatar.'" alt="User Image">
+                <span class="username"><a href="#">'.$this->fullname.'</a></span>
+                <span class="description">'.$state.'</span>
+              </div>';
+        return $str;
+        
+        
+//        $str = '<div class="widget-user-header">
+//              <div class="widget-user-image">
+//                <img class="img-circle" src="'.$this->avatar.'" alt="User Avatar">
+//              </div>
+//              <h3 class="widget-user-username">'.$this->fullname.'</h3>
+//              <h5 class="widget-user-desc">'.$state.'</h5>
+//            </div>';
+//        return $str;
+        
     }
 
 }

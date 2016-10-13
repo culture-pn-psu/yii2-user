@@ -7,6 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use suPnPsu\user\models\User;
 use suPnPsu\user\models\Profile;
+use mdm\admin\models\Assignment;
 
 /**
  * UserSearch represents the model behind the search form about `suPnPsu\user\models\User`.
@@ -73,7 +74,14 @@ class UserSearch extends User
             'asc' => [Profile::tableName().'.firstname' => SORT_ASC],
             'desc' => [Profile::tableName().'.firstname' => SORT_DESC],
         ];
-        $query->joinWith(['profile']);
+        $query->joinWith(['profile']);  
+        
+        
+        $query = $this->queryPermissiton($query);
+        
+        
+        
+        
 
         $this->load($params);
 
@@ -102,4 +110,20 @@ class UserSearch extends User
 
         return $dataProvider;
     }
+    
+    public function queryPermissiton($query){
+        if(Yii::$app->user->can('admin')){
+            //$query->join('LEFT JOIN','auth_assignment','auth_assignment.user_id = user.id');  
+            //$query->where(['auth_assignment.item_name'=>['staff','user']]);
+        }elseif(Yii::$app->user->can('staffUser')||Yii::$app->user->can('boss')){
+            $query->join('LEFT JOIN','auth_assignment','auth_assignment.user_id = user.id');  
+            $query->where(['auth_assignment.item_name'=>['staff','user']]);
+        }elseif(Yii::$app->user->can('staff')){
+            $query->join('LEFT JOIN','auth_assignment','auth_assignment.user_id = user.id');  
+            $query->where(['auth_assignment.item_name'=>'user']);
+        }
+        
+        return $query;        
+    }
+    
 }

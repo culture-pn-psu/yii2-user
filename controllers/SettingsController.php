@@ -35,7 +35,7 @@ class SettingsController extends Controller {
     }
 
     public function actions() {
-        $this->layout = 'left-menu.php';
+        $this->layout = 'left-menu.php';        
     }
 
     public function actionIndex() {
@@ -46,6 +46,7 @@ class SettingsController extends Controller {
         $model = Yii::$app->user->identity->profile;
         $model->scenario = 'update';
 
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'You have successfully change your profile.');
             return $this->redirect(['profile']);

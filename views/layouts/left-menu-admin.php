@@ -14,7 +14,7 @@ $controller = $this->context;
 //$menus = $controller->module->menus;
 //$route = $controller->route;
 $user = Yii::$app->user->identity->profile->resultInfo;
-$module = $this->context->module->id."/admin";
+$module = $this->context->module->id."/".Yii::$app->controller->id;
 ?>
 <?php $this->beginContent('@app/views/layouts/main.php') ?>
 
