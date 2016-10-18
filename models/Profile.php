@@ -47,6 +47,7 @@ class Profile extends \yii\db\ActiveRecord {
             'path' => $this->module->userUploadDir . '/' . $this->module->userUploadPath,
             'url' => $this->module->userUploadUrl . '/' . $this->module->userUploadPath,
         ];
+        
         return [
                 [
                 'class' => CropImageUploadBehavior::className(),
