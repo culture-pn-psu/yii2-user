@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
-/* @var $model suPnPsu\user\models\Account */
+/* @var $model culturePnPsu\user\models\Account */
 
 $this->title = 'Change Password: ' . $model->username;
 $this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['default/index']];

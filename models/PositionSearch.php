@@ -1,14 +1,14 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use suPnPsu\user\models\Position;
+use culturePnPsu\user\models\Position;
 
 /**
- * PositionSearch represents the model behind the search form about `suPnPsu\user\models\Position`.
+ * PositionSearch represents the model behind the search form about `culturePnPsu\user\models\Position`.
  */
 class PositionSearch extends Position
 {

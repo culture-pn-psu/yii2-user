@@ -1,6 +1,6 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
 use Yii;
 use yii\base\NotSupportedException;
@@ -9,7 +9,7 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use yii\helpers\FileHelper;
 use yii\helpers\ArrayHelper;
-use \suPnPsu\user\models\Profile;
+use \culturePnPsu\user\models\Profile;
 
 /**
  * User model
@@ -261,11 +261,11 @@ class User extends ActiveRecord implements IdentityInterface {
     }
 
     public function getProfile() {
-        return $this->hasOne(\suPnPsu\user\models\Profile::className(), ['user_id' => 'id']);
+        return $this->hasOne(\culturePnPsu\user\models\Profile::className(), ['user_id' => 'id']);
     }
     
     public function getPerson() {
-        return $this->hasOne(\suPnPsu\user\models\Person::className(), ['user_id' => 'id']);
+        return $this->hasOne(\culturePnPsu\user\models\Person::className(), ['user_id' => 'id']);
     }
 
     public function getStatusList() {

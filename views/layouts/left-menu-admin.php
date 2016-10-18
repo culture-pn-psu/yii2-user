@@ -3,9 +3,9 @@
 use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 //use firdows\menu\models\Navigate;
-use suPnPsu\material\components\Navigate;
+//use culturePnPsu\material\components\Navigate;
 use mdm\admin\components\Helper;
-use suPnPsu\user\components\AdminNavigate;
+use culturePnPsu\user\components\AdminNavigate;
 
 /* @var $this \yii\web\View */
 /* @var $content string */

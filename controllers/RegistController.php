@@ -1,11 +1,11 @@
 <?php
-namespace suPnPsu\user\controllers;
+namespace culturePnPsu\user\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
-use suPnPsu\user\models\SignupForm;
+use culturePnPsu\user\models\SignupForm;
 
 use app\models\Profile;
 

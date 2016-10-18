@@ -6,7 +6,7 @@ use yii\bootstrap\Modal;
 use karpoff\icrop\CropImageUpload;
 
 /* @var $this yii\web\View */
-/* @var $model suPnPsu\user\models\Profile */
+/* @var $model culturePnPsu\user\models\Profile */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <?php

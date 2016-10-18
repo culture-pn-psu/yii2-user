@@ -1,9 +1,9 @@
 <?php
 
-namespace suPnPsu\user\components;
+namespace culturePnPsu\user\components;
 
 use Yii;
-use suPnPsu\user\models\Profile;
+use culturePnPsu\user\models\Profile;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

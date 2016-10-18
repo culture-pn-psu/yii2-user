@@ -5,7 +5,7 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel suPnPsu\user\models\PositionSearch */
+/* @var $searchModel culturePnPsu\user\models\PositionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Positions');

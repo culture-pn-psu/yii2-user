@@ -1,18 +1,18 @@
 <?php
 
-namespace suPnPsu\user\controllers;
+namespace culturePnPsu\user\controllers;
 
 use Yii;
-use suPnPsu\user\models\User;
-use suPnPsu\user\models\UserSearch;
-use suPnPsu\user\models\Profile;
-use suPnPsu\user\components\Controller;
+use culturePnPsu\user\models\User;
+use culturePnPsu\user\models\UserSearch;
+use culturePnPsu\user\models\Profile;
+use culturePnPsu\user\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use suPnPsu\user\filters\AccessRule;
-use suPnPsu\user\models\UserSearchWaiting;
-use suPnPsu\user\models\Person;
+use culturePnPsu\user\filters\AccessRule;
+use culturePnPsu\user\models\UserSearchWaiting;
+use culturePnPsu\user\models\Person;
 
 /**
  * AdminController implements the CRUD actions for User model.

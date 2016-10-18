@@ -1,12 +1,12 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
 use Yii;
 use karpoff\icrop\CropImageUploadBehavior;
 use yii\helpers\Html;
 use \yii\helpers\StringHelper;
-use suPnPsu\user\models\User;
+use culturePnPsu\user\models\User;
 
 /**
  * This is the model class for table "user_profile".
@@ -52,8 +52,8 @@ class Profile extends \yii\db\ActiveRecord {
                 'class' => CropImageUploadBehavior::className(),
                 'attribute' => 'avatar',
                 'scenarios' => ['insert', 'update'],
-                'path' => $userUploads['path'] . '/avatars',
-                'url' => $userUploads['url'] . '/avatars',
+                'path' => $userUploads['path'] . "/{$this->user_id}/avatars",
+                'url' => $userUploads['url'] . "/{$this->user_id}/avatars",
                 'ratio' => 1,
                 'crop_field' => 'avatar_offset',
                 'cropped_field' => 'avatar_cropped',
@@ -62,8 +62,8 @@ class Profile extends \yii\db\ActiveRecord {
                 'class' => CropImageUploadBehavior::className(),
                 'attribute' => 'cover',
                 'scenarios' => ['insert', 'update'],
-                'path' => $userUploads['path'] . '/covers',
-                'url' => $userUploads['url'] . '/covers',
+                'path' => $userUploads['path'] . "/{$this->user_id}/covers",
+                'url' => $userUploads['url'] . "/{$this->user_id}/covers",
                 'ratio' => 5,
                 'crop_field' => 'cover_offset',
                 'cropped_field' => 'cover_cropped',
@@ -101,7 +101,7 @@ class Profile extends \yii\db\ActiveRecord {
     }
 
     public function getUser() {
-        return $this->hasOne(\suPnPsu\user\models\User::className(), ['id' => 'user_id']);
+        return $this->hasOne(\culturePnPsu\user\models\User::className(), ['id' => 'user_id']);
     }
 
     public function beforeDelete() {
@@ -162,7 +162,7 @@ class Profile extends \yii\db\ActiveRecord {
         $data->firstname = $this->verifyValue($data->firstname);
         $data->lastname = $this->verifyValue($data->lastname);
         $data->fullname = $this->verifyValue($data->fullname);
-        $data->avatar = $this->checkImgPsu($data->username) ? $this->checkImgPsu($data->username) : $this->verifyImage($userUploadPath . '/avatars/' . $data->avatar, 'default-avatar.jpg');
+        $data->avatar = $this->verifyImage($userUploadPath . '/avatars/' . $data->avatar, 'default-avatar.jpg');
         $data->cover = $this->verifyImage($userUploadPath . '/covers/' . $data->cover, 'default-cover.jpg');
         $data->bio = $this->verifyValue($data->bio);
         $data->data = $this->verifyValue($data->data);
@@ -206,10 +206,10 @@ class Profile extends \yii\db\ActiveRecord {
             return $fileUrl;
         } else {
             $asset = Yii::$app->assetManager;
-            $assetUrl = $asset->getPublishedUrl('@suPnPsu/user/client');
+            $assetUrl = $asset->getPublishedUrl('@culturePnPsu/user/client');
             $assetDir = Yii::getAlias('@webroot/assets/') . basename($assetUrl);
             if (!is_dir($assetDir)) {
-                $asset->publish('@suPnPsu/user/client');
+                $asset->publish('@culturePnPsu/user/client');
             }
             return $assetUrl . '/images/' . $defaultImage;
         }
@@ -242,7 +242,7 @@ class Profile extends \yii\db\ActiveRecord {
     }
 
     public function getPerson() {
-        return $this->hasOne(\suPnPsu\user\models\Person::className(), ['user_id' => 'user_id']);
+        return $this->hasOne(\culturePnPsu\user\models\Person::className(), ['user_id' => 'user_id']);
     }
 
     public function getStatusChange() {

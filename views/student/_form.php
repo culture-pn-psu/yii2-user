@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use suPnPsu\user\models\Position;
+use culturePnPsu\user\models\Position;
 use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
-/* @var $user suPnPsu\user\models\User */
+/* @var $user culturePnPsu\user\models\User */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="box box-<?= $user->isNewRecord ? 'success' : 'primary' ?>">

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 //use firdows\menu\models\Navigate;
-use suPnPsu\material\components\Navigate;
+use culturePnPsu\user\components\AdminNavigate;
 use mdm\admin\components\Helper;
 
 /* @var $this \yii\web\View */
@@ -55,7 +55,7 @@ $module = $this->context->module->id;
                 ];
                 $menuItems = Helper::filter($menuItems);
 
-                $nav = new Navigate();
+                $nav = new AdminNavigate();
                 echo dmstr\widgets\Menu::widget([
                     'options' => ['class' => 'nav nav-pills nav-stacked'],
                     //'linkTemplate' =>'<a href="{url}">{icon} {label} {badge}</a>',

@@ -1,7 +1,7 @@
 <?php
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
-use suPnPsu\user\models\User;
+use culturePnPsu\user\models\User;
 use Yii;
 use yii\base\Model;
 
@@ -22,7 +22,7 @@ class PasswordResetRequestForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\suPnPsu\user\models\User',
+                'targetClass' => '\culturePnPsu\user\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with such email.'
             ],

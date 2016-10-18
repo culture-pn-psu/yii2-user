@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model suPnPsu\user\models\Position */
+/* @var $model culturePnPsu\user\models\Position */
 
 $this->title = Yii::t('app', 'Create Position');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Positions'), 'url' => ['index']];

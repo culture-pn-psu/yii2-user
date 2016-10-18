@@ -1,6 +1,6 @@
 <?php
 
-namespace suPnPsu\user\components;
+namespace culturePnPsu\user\components;
 
 use Yii;
 use yii\helpers\Html;
@@ -20,7 +20,7 @@ class StudentNavigate extends \firdows\menu\models\Navigate {
         switch ($router) {            
 
             case "{$module}/admin/index":
-                $searchModel = new \suPnPsu\user\models\UserSearch();
+                $searchModel = new \culturePnPsu\user\models\UserSearch();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                 $count = $dataProvider->getCount();
                 $count = $count ? Html::tag('b', ' (' . $count . ')') : '';
@@ -29,7 +29,7 @@ class StudentNavigate extends \firdows\menu\models\Navigate {
 
             //case "{$module}/admin":
             case "{$module}/admin/waiting":
-                $searchModel = new \suPnPsu\user\models\UserSearchWaiting();
+                $searchModel = new \culturePnPsu\user\models\UserSearchWaiting();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                 $count = $dataProvider->getCount();
                 $count = $count ? '<small class="label bg-yellow pull-right">' . $count . '</small>' : '';

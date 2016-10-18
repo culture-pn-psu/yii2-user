@@ -1,6 +1,6 @@
 <?php
 
-namespace suPnPsu\user\components;
+namespace culturePnPsu\user\components;
 
 use Yii;
 use yii\helpers\Html;
@@ -20,7 +20,7 @@ class AdminNavigate extends \firdows\menu\models\Navigate {
         switch ($router) {            
 
             case "{$module}/index":
-                $searchModel = new \suPnPsu\user\models\UserSearch();
+                $searchModel = new \culturePnPsu\user\models\UserSearch();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                 $count = $dataProvider->getCount();
                 $count = $count ? Html::tag('b', ' (' . $count . ')') : '';
@@ -29,14 +29,14 @@ class AdminNavigate extends \firdows\menu\models\Navigate {
 
             //case "{$module}/admin":
             case "{$module}/waiting":
-                $searchModel = new \suPnPsu\user\models\UserSearchWaiting();
+                $searchModel = new \culturePnPsu\user\models\UserSearchWaiting();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                 $count = $dataProvider->getCount();
                 $count = $count ? '<small class="label bg-yellow pull-right">' . $count . '</small>' : '';
                 break;
             
             case "{$module}/banned":
-                $searchModel = new \suPnPsu\user\models\UserSearchBanned();
+                $searchModel = new \culturePnPsu\user\models\UserSearchBanned();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                 $count = $dataProvider->getCount();
                 $count = $count ? Html::tag('b', ' (' . $count . ')') : '';
