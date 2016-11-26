@@ -305,5 +305,25 @@ class Profile extends \yii\db\ActiveRecord {
 //            </div>';
 //        return $str;
     }
+    
+    public function getFullnameImg() {
+        $profile = $this->resultInfo;
+        return Html::beginTag('div', ['class' => 'user-circle'])
+                . Html::beginTag('div', ['class' => 'circle', 'style' => ''])
+                . Html::img($profile->avatar, ['class' => '', 'style' => ''])
+                . Html::endTag('div')
+                . Html::beginTag('span', ['class' => 'username', 'style' => ''])
+                . Html::a($this->fullname, ['#'])
+                . Html::beginTag('span', ['class' => 'description'])
+                //. $this->personPosition . ' ' . $this->personParent.'<br />'
+                . (($this->person) ? ($this->person->tel ? 'เบอร์ติดต่อ ' . $this->person->tel : '') : '')
+                . Html::endTag('span')
+                . Html::endTag('span')
+                . Html::endTag('div');
+    }
+    
+    public static function getList(){
+        return \yii\helpers\ArrayHelper::map(self::find()->all(),'user_id','fullname');
+    }
 
 }
