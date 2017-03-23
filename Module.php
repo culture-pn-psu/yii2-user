@@ -44,23 +44,17 @@ class Module extends \yii\base\Module
         $this->defaultRoute = 'settings/profile';
         //$this->layout = 'left-menu.php';
         
-<<<<<<< HEAD
         $this->layoutPath = '@culturePnPsu/user/views/layouts';
         $this->layout = 'main';
-=======
 //        $this->layoutPath = '@culturePnPsu/user/views/layouts';
 //        $this->layout = 'main';
->>>>>>> 4f99ce76add2d38b077bf459cb854e5e44611a09
 
         //Yii::$app->user->loginUrl = ['/'.$this->id.'/auth/login'];
 
         $this->params();
 
-<<<<<<< HEAD
         Yii::$app->mailer->viewPath = '@culturePnPsu/user/mail';
-=======
         //Yii::$app->mailer->viewPath = '@culturePnPsu/user/mail';
->>>>>>> 4f99ce76add2d38b077bf459cb854e5e44611a09
 
         if(substr($this->userUploadDir, 0, 1) === '@'){
             $this->userUploadDir = Yii::getAlias($this->userUploadDir);

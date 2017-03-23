@@ -152,17 +152,10 @@ class Profile extends \yii\db\ActiveRecord {
                     'bio' => $this->bio,
                     'data' => $this->data,
                     'roles' => Yii::$app->authManager->getRolesByUser($this->user_id),
-<<<<<<< HEAD
                     // 'major' => $this->person ? $this->person->major : null,
                     // 'faculty' => $this->person ? $this->person->faculty : null,
                     // 'tel' => $this->person ? $this->person->tel : null,
                     // 'address' => $this->person ? $this->person->faculty : null,
-=======
-                    //'major' => $this->person ? $this->person->major : null,
-                    //'faculty' => $this->person ? $this->person->faculty : null,
-                    'tel' => $this->person ? $this->person->tel : null,
-                    'address' => $this->person ? $this->person->address : null,
->>>>>>> 4f99ce76add2d38b077bf459cb854e5e44611a09
         ];
 
         return $result;
