@@ -1,6 +1,6 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
 use Yii;
 use yii\base\Model;
@@ -45,7 +45,7 @@ class LoginForm extends Model {
             if ($user->profile->login_by === 'psu') {
 
                 if (@function_exists('ldap_connect')) {
-                    $ldap = new \suPnPsu\user\components\Ldap();
+                    $ldap = new \culturePnPsu\user\components\Ldap();
                     /* $ldap->server = ['dc2.psu.ac.th','dc7.psu.ac.th','dc1.psu.ac.th'];
                       $ldap->basedn = 'dc=psu,dc=ac,dc=th';
                       $ldap->domain = 'psu.ac.th'; */
@@ -62,7 +62,7 @@ class LoginForm extends Model {
                         Profile::updateProfile($user->id, $authen['info']);
                     }
                 } else {
-                    $soap = new \suPnPsu\user\components\Soap();
+                    $soap = new \culturePnPsu\user\components\Soap();
                     $soap->id = $user->id;
                     $soap->username = $this->username;
                     $soap->password = $this->password;

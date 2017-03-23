@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel suPnPsu\user\models\UserSearch */
+/* @var $searchModel culturePnPsu\user\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'ผู้ที่ลงเบียน';

@@ -1,6 +1,6 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
 use Yii;
 

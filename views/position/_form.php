@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model suPnPsu\user\models\Position */
+/* @var $model culturePnPsu\user\models\Position */
 /* @var $form yii\widgets\ActiveForm */
 $role = Yii::$app->authManager->getRoles();
 //print_r($role);

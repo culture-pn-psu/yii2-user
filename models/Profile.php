@@ -1,12 +1,12 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
 use Yii;
 use karpoff\icrop\CropImageUploadBehavior;
 use yii\helpers\Html;
 use \yii\helpers\StringHelper;
-use suPnPsu\user\models\User;
+use culturePnPsu\user\models\User;
 
 /**
  * This is the model class for table "user_profile".
@@ -101,7 +101,7 @@ class Profile extends \yii\db\ActiveRecord {
     }
 
     public function getUser() {
-        return $this->hasOne(\suPnPsu\user\models\User::className(), ['id' => 'user_id']);
+        return $this->hasOne(\culturePnPsu\user\models\User::className(), ['id' => 'user_id']);
     }
 
     public function beforeDelete() {
@@ -143,10 +143,10 @@ class Profile extends \yii\db\ActiveRecord {
                     'bio' => $this->bio,
                     'data' => $this->data,
                     'roles' => Yii::$app->authManager->getRolesByUser($this->user_id),
-                    'major' => $this->person ? $this->person->major : null,
-                    'faculty' => $this->person ? $this->person->faculty : null,
-                    'tel' => $this->person ? $this->person->tel : null,
-                    'address' => $this->person ? $this->person->faculty : null,
+                    // 'major' => $this->person ? $this->person->major : null,
+                    // 'faculty' => $this->person ? $this->person->faculty : null,
+                    // 'tel' => $this->person ? $this->person->tel : null,
+                    // 'address' => $this->person ? $this->person->faculty : null,
         ];
 
         return $result;
@@ -206,10 +206,10 @@ class Profile extends \yii\db\ActiveRecord {
             return $fileUrl;
         } else {
             $asset = Yii::$app->assetManager;
-            $assetUrl = $asset->getPublishedUrl('@suPnPsu/user/client');
+            $assetUrl = $asset->getPublishedUrl('@culturePnPsu/user/client');
             $assetDir = Yii::getAlias('@webroot/assets/') . basename($assetUrl);
             if (!is_dir($assetDir)) {
-                $asset->publish('@suPnPsu/user/client');
+                $asset->publish('@culturePnPsu/user/client');
             }
             return $assetUrl . '/images/' . $defaultImage;
         }
@@ -242,7 +242,7 @@ class Profile extends \yii\db\ActiveRecord {
     }
 
     public function getPerson() {
-        return $this->hasOne(\suPnPsu\user\models\Person::className(), ['user_id' => 'user_id']);
+        return $this->hasOne(\culturePnPsu\user\models\Person::className(), ['user_id' => 'user_id']);
     }
 
     public function getStatusChange() {

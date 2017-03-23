@@ -1,8 +1,8 @@
 <?php
-namespace suPnPsu\user\components;
+namespace culturePnPsu\user\components;
 
 use Yii;
-use suPnPsu\user\models\Profile;
+use culturePnPsu\user\models\Profile;
 
 /*****************Usage for Yii2Advanced*****************************
 1.	Put this file to Your project/common/components (create components directory by user)

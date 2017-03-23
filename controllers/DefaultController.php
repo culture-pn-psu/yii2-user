@@ -1,10 +1,10 @@
 <?php
 
-namespace suPnPsu\user\controllers;
+namespace culturePnPsu\user\controllers;
 
 use Yii;
-use suPnPsu\user\components\Controller;
-use suPnPsu\user\models\User;
+use culturePnPsu\user\components\Controller;
+use culturePnPsu\user\models\User;
 
 /**
  * Default controller for the `user` module

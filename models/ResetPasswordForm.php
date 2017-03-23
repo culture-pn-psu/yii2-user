@@ -1,7 +1,7 @@
 <?php
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
-use suPnPsu\user\models\User;
+use culturePnPsu\user\models\User;
 use yii\base\InvalidParamException;
 use yii\base\Model;
 use Yii;

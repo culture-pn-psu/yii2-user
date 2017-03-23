@@ -1,8 +1,8 @@
 <?php
 
-namespace suPnPsu\user\models;
+namespace culturePnPsu\user\models;
 
-use suPnPsu\user\models\User;
+use culturePnPsu\user\models\User;
 use yii\base\Model;
 use Yii;
 
@@ -24,13 +24,13 @@ class SignupForm extends Model {
         return [
                 ['username', 'filter', 'filter' => 'trim'],
                 ['username', 'required'],
-                ['username', 'unique', 'targetClass' => '\suPnPsu\user\models\User', 'message' => 'ชื่อผู้ใช้นี้ได้อยู่ในระบบแล้ว'],
+                ['username', 'unique', 'targetClass' => '\culturePnPsu\user\models\User', 'message' => 'ชื่อผู้ใช้นี้ได้อยู่ในระบบแล้ว'],
                 ['username', 'string', 'min' => 2, 'max' => 255],
                 ['email', 'filter', 'filter' => 'trim'],
             //['email', 'required'],
             ['email', 'email'],
                 ['email', 'string', 'max' => 255],
-                ['email', 'unique', 'targetClass' => '\suPnPsu\user\models\User', 'message' => 'อีเมลล์นี้มีการใช้งานแล้ว'],
+                ['email', 'unique', 'targetClass' => '\culturePnPsu\user\models\User', 'message' => 'อีเมลล์นี้มีการใช้งานแล้ว'],
                 [['password',], 'required'],
                 [['password', 'passwordConfirm'], 'string', 'min' => 6],
             //[['passwordConfirm',], 'required', 'on' => 'signup'],
@@ -62,7 +62,7 @@ class SignupForm extends Model {
     public function checkPsuPassport() {
 
         if (@function_exists('ldap_connect')) {
-            $ldap = new \suPnPsu\user\components\Ldap();
+            $ldap = new \culturePnPsu\user\components\Ldap();
             /* $ldap->server = ['dc2.psu.ac.th','dc7.psu.ac.th','dc1.psu.ac.th'];
               $ldap->basedn = 'dc=psu,dc=ac,dc=th';
               $ldap->domain = 'psu.ac.th'; */
@@ -76,7 +76,7 @@ class SignupForm extends Model {
                 $this->addError('password', 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง.');
             }
         } else {
-            $soap = new \suPnPsu\user\components\Soap();
+            $soap = new \culturePnPsu\user\components\Soap();
             $soap->username = $this->username;
             $soap->password = $this->password;
             $authen = $soap->Authenticate();

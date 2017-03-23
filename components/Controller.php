@@ -1,8 +1,8 @@
 <?php
-namespace suPnPsu\user\components;
+namespace culturePnPsu\user\components;
 
 use Yii;
-use suPnPsu\user\models\User;
+use culturePnPsu\user\models\User;
 
 class Controller extends \yii\web\Controller
 {

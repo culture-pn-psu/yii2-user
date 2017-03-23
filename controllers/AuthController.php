@@ -1,13 +1,13 @@
 <?php
-namespace suPnPsu\user\controllers;
+namespace culturePnPsu\user\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
-use suPnPsu\user\models\PasswordResetRequestForm;
-use suPnPsu\user\models\ResetPasswordForm;
-use suPnPsu\user\models\LoginForm;
+use culturePnPsu\user\models\PasswordResetRequestForm;
+use culturePnPsu\user\models\ResetPasswordForm;
+use culturePnPsu\user\models\LoginForm;
 
 use app\models\Profile;
 

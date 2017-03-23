@@ -34,4 +34,4 @@ class m160425_081413_create_user_profile_table extends Migration
     }
 }
 
-//Migrate   ./yii migrate --migrationPath=@suPnPsu/user/migrations/
+//Migrate   ./yii migrate --migrationPath=@culturePnPsu/user/migrations/

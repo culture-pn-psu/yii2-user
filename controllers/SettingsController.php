@@ -1,10 +1,10 @@
 <?php
 
-namespace suPnPsu\user\controllers;
+namespace culturePnPsu\user\controllers;
 
 use Yii;
-use suPnPsu\user\models\Profile;
-use suPnPsu\user\components\Controller;
+use culturePnPsu\user\models\Profile;
+use culturePnPsu\user\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;

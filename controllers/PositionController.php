@@ -1,10 +1,10 @@
 <?php
 
-namespace suPnPsu\user\controllers;
+namespace culturePnPsu\user\controllers;
 
 use Yii;
-use suPnPsu\user\models\Position;
-use suPnPsu\user\models\PositionSearch;
+use culturePnPsu\user\models\Position;
+use culturePnPsu\user\models\PositionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
