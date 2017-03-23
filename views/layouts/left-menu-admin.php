@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 //use firdows\menu\models\Navigate;
-use suPnPsu\material\components\Navigate;
+//use culturePnPsu\material\components\Navigate;
 use mdm\admin\components\Helper;
 use culturePnPsu\user\components\AdminNavigate;
 

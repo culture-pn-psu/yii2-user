@@ -17,21 +17,13 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
         "culture-pn-psu/yii2-core":"*",
         "karpoff/yii2-crop-image-upload": "*",
-        "dmstr/yii2-adminlte-asset": "2.*",
-        "mdmsoft/yii2-admin": "~2.0"
+        "dmstr/yii2-adminlte-asset": "2.*"
     },
     "autoload": {
         "psr-4": {
             "culturePnPsu\\user\\": ""
-        }
-    },
-    "extra": {
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
         }
     }
 }
