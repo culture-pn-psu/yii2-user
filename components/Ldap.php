@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
-=======
 
->>>>>>> 4f99ce76add2d38b077bf459cb854e5e44611a09
 namespace culturePnPsu\user\components;
 
 use Yii;
 use culturePnPsu\user\models\Profile;
 
-<<<<<<< HEAD
 /*****************Usage for Yii2Advanced*****************************
 1.	Put this file to Your project/common/components (create components directory by user)
 
@@ -38,7 +34,6 @@ use culturePnPsu\user\models\Profile;
                 $this->addError($attribute, 'Incorrect username or password.');
             }else{
                 //Yii::$app->session['userInfo'] = $authen['info']; //Register Session
-=======
 /* * ***************Usage for Yii2Advanced*****************************
   1.	Put this file to Your project/common/components (create components directory by user)
 
@@ -106,7 +101,6 @@ class Ldap {
                 $result = [
                     'status' => false,
                 ];
->>>>>>> 4f99ce76add2d38b077bf459cb854e5e44611a09
             }
             ldap_close($ldap);
             $i++;
